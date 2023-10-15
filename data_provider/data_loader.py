@@ -103,15 +103,15 @@ class Dataset_Custom(Dataset):
 
         seq_x = self.data_x[s_begin:s_end]
         seq_y = self.data_y[r_begin:r_end]
-        seq_x_mask = self.data_stamp[s_begin:s_end]
-        seq_y_mask = self.data_stamp[r_begin:r_end]
+        seq_x_mark = self.data_stamp[s_begin:s_end]
+        seq_y_mark = self.data_stamp[r_begin:r_end]
 
         # print(seq_x.shape)
         # print(seq_y.shape)
-        # print(seq_x_mask.shape)
-        # print(seq_y_mask.shape)
+        # print(seq_x_mark.shape)
+        # print(seq_y_mark.shape)
 
-        return seq_x, seq_y, seq_x_mask, seq_y_mask
+        return seq_x, seq_y, seq_x_mark, seq_y_mark
 
     def __len__(self):
         return len(self.data_x) - self.seq_len - self.pred_len + 1
@@ -221,11 +221,11 @@ class Dataset_Pred(Dataset):
             seq_y = self.data_x[r_begin:r_begin + self.label_len]
         else:
             seq_y = self.data_y[r_begin:r_begin + self.label_len]
-        seq_x_mask = self.data_stamp[s_begin:s_end]
-        seq_y_mask = self.data_stamp[r_begin:r_end]
+        seq_x_mark = self.data_stamp[s_begin:s_end]
+        seq_y_mark = self.data_stamp[r_begin:r_end]
 
-        # print(seq_x, seq_y, seq_x_mask, seq_y_mask)
-        return seq_x, seq_y, seq_x_mask, seq_y_mask
+        # print(seq_x, seq_y, seq_x_mark, seq_y_mark)
+        return seq_x, seq_y, seq_x_mark, seq_y_mark
 
     def __len__(self):
         return len(self.data_x) - self.seq_len + 1

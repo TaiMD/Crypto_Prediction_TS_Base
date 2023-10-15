@@ -10,7 +10,7 @@ fi
 
 for embed_type in  3 4 1 2
     do
-    for model_name in Transformer Informer
+    for model_name in Informer Transformer
         do
         for seq_len in 6
             do
